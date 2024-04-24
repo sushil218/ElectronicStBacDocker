@@ -69,6 +69,17 @@ public class ElectronicStoreApplication implements CommandLineRunner {
                     .userId(UUID.randomUUID().toString())
                     .about("I am Normal User")
                     .build();
+            
+            User normalUser1 = User.builder()
+                    .name("sushil")
+                    .email("sushilgirik@gmail.com")
+                    .password(passwordEncoder.encode("sushil123"))
+                    .gender("Male")
+                    .imageName("default.png")
+                    .roles(Set.of(role_normal))
+                    .userId(UUID.randomUUID().toString())
+                    .about("I am Normal User")
+                    .build();
 
             repository.save(role_admin);
             repository.save(role_normal);
@@ -76,6 +87,7 @@ public class ElectronicStoreApplication implements CommandLineRunner {
 
             userRepository.save(adminUser);
             userRepository.save(normalUser);
+            userRepository.save(normalUser1);
 
         } catch (Exception e) {
             e.printStackTrace();
